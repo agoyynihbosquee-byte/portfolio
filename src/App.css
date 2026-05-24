@@ -315,9 +315,9 @@ img{max-width:100%;display:block}
   .ah-slideshow{animation:none;opacity:.1}
   .ah-r1,.ah-r2{display:none}
   .ah-pill{display:none}
-  .ah-exp{left:-8px;top:-12px;padding:8px 12px;animation:none}
+  .ah-exp{left:-8px;top:-12px;padding:8px 12px;animation:badgeFloat 3.5s ease-in-out infinite 0.5s}
   .eb-num{font-size:1.4rem}
-  .ah-avail{right:-8px;bottom:-12px;font-size:11px;animation:none}
+  .ah-avail{right:-8px;bottom:-12px;font-size:11px;animation:badgeFloat 3.5s ease-in-out infinite 1.5s}
   .ht-name{font-size:clamp(2.4rem,9vw,3.5rem)}
   .hbtns{flex-direction:column}
   .btn-main,.btn-ghost{width:100%;justify-content:center;padding:14px 20px}
