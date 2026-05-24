@@ -294,7 +294,7 @@ const PROJECT = {
   desc: 'Website portfolio personal yang dibangun dengan React + Vite. Menampilkan keahlian, pengalaman, dan cara menghubungi saya. Desain modern, responsif, dan penuh animasi.',
   tech: ['React', 'Vite', 'CSS3', 'Vercel'],
   link: 'https://yogabimaportfolio.vercel.app',
-  year: '2025',
+  year: '2026',
 }
 
 /* ══ MAIN ══ */
