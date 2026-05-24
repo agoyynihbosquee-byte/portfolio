@@ -443,7 +443,7 @@ export default function App() {
             <span className="brand-box sm">Y</span>
             <span className="fn">YOGA<span className="brand-dot">.</span></span>
           </div>
-          <p className="fc">© 2025 Yoga Bima Anggara Putra</p>
+          <p className="fc">© 2026 Yoga Bima Anggara Putra</p>
           <div className="flinks">
             <a href="https://wa.me/6288226547130" target="_blank" rel="noreferrer" className="flink">WA</a>
             <span className="fd">·</span>
