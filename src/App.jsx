@@ -54,26 +54,114 @@ function TypingText({ words }) {
 }
 
 /* ══ AGOY INTERACTIVE ══ */
-/* ══ AGOY HERO — lightweight CSS gradient slideshow ══ */
+function AgoyText() {
+  const [burst, setBurst] = useState(false)
+  const [hoverIdx, setHoverIdx] = useState(null)
+  const [particles, setParticles] = useState([])
+  const letters = ['A', 'G', 'O', 'Y']
+  const colors = ['#a855f7', '#7c3aed', '#c084fc', '#e879f9']
+
+  const triggerBurst = () => {
+    setBurst(true)
+    const pts = Array.from({ length: 18 }, (_, i) => ({
+      id: Date.now() + i,
+      x: Math.random() * 200 - 100,
+      y: Math.random() * 200 - 100,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      size: Math.random() * 6 + 3,
+    }))
+    setParticles(pts)
+    setTimeout(() => { setBurst(false); setParticles([]) }, 800)
+  }
+
+  return (
+    <div className="agoy-wrap" onClick={triggerBurst}>
+      {letters.map((l, i) => (
+        <span
+          key={i}
+          className={`agoy-letter ${burst ? 'burst' : ''} ${hoverIdx === i ? 'hov' : ''}`}
+          style={{ '--ai': i, '--ac': colors[i], animationDelay: `${i * 0.12}s` }}
+          onMouseEnter={() => setHoverIdx(i)}
+          onMouseLeave={() => setHoverIdx(null)}
+        >
+          {l}
+        </span>
+      ))}
+      {particles.map(p => (
+        <span key={p.id} className="agoy-particle"
+          style={{ '--px': `${p.x}px`, '--py': `${p.y}px`, background: p.color, width: p.size, height: p.size }} />
+      ))}
+      <span className="agoy-hint">click me</span>
+    </div>
+  )
+}
+
+/* ══ AGOY HERO (right side, replaces photo) ══ */
 function AgoyHero() {
+  const [active, setActive] = useState(null)
+  const [ripples, setRipples] = useState([])
+  const [glitch, setGlitch] = useState(false)
+  const [mode, setMode] = useState(0) // 0=normal,1=fire,2=wave,3=glitch
+  const letters = ['A','G','O','Y']
+  const palettes = [
+    ['#a855f7','#7c3aed','#c084fc','#e879f9'],
+    ['#f97316','#ef4444','#fb923c','#fbbf24'],
+    ['#06b6d4','#3b82f6','#8b5cf6','#06d6a0'],
+    ['#00ff41','#ff0080','#ffff00','#00ffff'],
+  ]
+  const cols = palettes[mode]
+
+  const handleClick = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect()
+    const x = e.clientX - rect.left
+    const y = e.clientY - rect.top
+    const id = Date.now()
+    setRipples(r => [...r, { id, x, y }])
+    setTimeout(() => setRipples(r => r.filter(p => p.id !== id)), 900)
+    setGlitch(true)
+    setTimeout(() => setGlitch(false), 400)
+    setMode(m => (m + 1) % 4)
+  }
+
   return (
     <div className="agoy-hero-outer">
-      {/* gradient slideshow background */}
-      <div className="ah-slideshow" />
-      {/* soft ambient rings — CSS only */}
-      <div className="ah-ring ah-r1" />
-      <div className="ah-ring ah-r2" />
+      {/* bg glow */}
+      <div className="ah-bg-glow" style={{ background: `radial-gradient(circle at 50% 50%, ${cols[0]}33, ${cols[1]}22, transparent 70%)` }} />
+      {/* rings */}
+      <div className="ah-ring ah-r1" style={{ borderColor: `${cols[0]}22` }} />
+      <div className="ah-ring ah-r2" style={{ borderColor: `${cols[1]}18` }} />
+      <div className="ah-ring ah-r3" style={{ borderColor: `${cols[2]}12` }} />
 
-      {/* card */}
-      <div className="agoy-hero-box">
-        {/* big AGOY text with clipping mask over slideshow */}
-        <div className="agoy-slide-text">AGOY</div>
-        <div className="ah-tagline">Full-Stack Engineer</div>
-
-        {/* floating code pills — CSS animation only */}
-        <div className="ah-pill ah-p1">{'<dev />'}</div>
-        <div className="ah-pill ah-p2">{'{ yoga }'}</div>
-        <div className="ah-pill ah-p3">{'() =>'}</div>
+      {/* main clickable area */}
+      <div className={`agoy-hero-box ${glitch ? 'ag-glitch' : ''}`} onClick={handleClick}>
+        {ripples.map(r => (
+          <span key={r.id} className="ah-ripple" style={{ left: r.x, top: r.y, background: cols[0] }} />
+        ))}
+        <div className="agoy-letters-big">
+          {letters.map((l, i) => (
+            <span
+              key={i}
+              className={`abl ${active === i ? 'abl-active' : ''}`}
+              style={{
+                '--col': cols[i],
+                '--col2': cols[(i + 1) % 4],
+                animationDelay: `${i * 0.18}s`,
+              }}
+              onMouseEnter={() => setActive(i)}
+              onMouseLeave={() => setActive(null)}
+            >
+              {l}
+              <span className="abl-shadow">{l}</span>
+            </span>
+          ))}
+        </div>
+        <div className="ah-mode-label" style={{ color: cols[0] }}>
+          {['NEON PURPLE','FIRE MODE','CYBER BLUE','GLITCH MODE'][mode]}
+        </div>
+        <div className="ah-click-hint">
+          <span className="ah-cursor-icon">⚡</span>
+          <span>click to change mode</span>
+        </div>
       </div>
 
       {/* badges */}
@@ -85,6 +173,11 @@ function AgoyHero() {
         <span className="eb-num">5+</span>
         <span className="eb-txt">Bulan<br/>Pengalaman</span>
       </div>
+
+      {/* floating code snippets */}
+      <div className="ah-code ah-c1" style={{ borderColor: `${cols[0]}30`, color: cols[0] }}>{'<dev/>'}</div>
+      <div className="ah-code ah-c2" style={{ borderColor: `${cols[2]}30`, color: cols[2] }}>{'{ yoga }'}</div>
+      <div className="ah-code ah-c3" style={{ borderColor: `${cols[1]}30`, color: cols[1] }}>{'() =>'}</div>
     </div>
   )
 }
@@ -201,7 +294,7 @@ const PROJECT = {
   desc: 'Website portfolio personal yang dibangun dengan React + Vite. Menampilkan keahlian, pengalaman, dan cara menghubungi saya. Desain modern, responsif, dan penuh animasi.',
   tech: ['React', 'Vite', 'CSS3', 'Vercel'],
   link: 'https://yogabimaportfolio.vercel.app',
-  year: '2026',
+  year: '2025',
 }
 
 /* ══ MAIN ══ */
