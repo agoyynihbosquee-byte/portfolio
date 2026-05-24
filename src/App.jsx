@@ -178,6 +178,17 @@ export default function App() {
             </div>
           </div>
         </div>
+
+        {/* Badge mobile only */}
+        <div className="badge-card badge-mobile">
+          <div className="badge-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <div className="badge-text">
+            <strong>Full-Stack Dev</strong>
+            <span>Node.js · React · PostgreSQL</span>
+          </div>
+        </div>
       </section>
 
       {/* ── ABOUT ── */}

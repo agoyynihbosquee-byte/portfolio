@@ -53,7 +53,7 @@ body {
 }
 .logo:hover .logo-box { transform: rotate(-6deg) scale(1.08); }
 .logo-text { font-size: 15px; font-weight: 600; letter-spacing: 0.12em; color: var(--text-dark); }
-.nav-links { display:flex; list-style:none; gap:0; flex:1; }
+.nav-links { display:flex; list-style:none; gap:0; flex:1; margin: 0; padding: 0; }
 .nav-link {
   display: block; text-decoration: none;
   font-size: 14px; font-weight: 500; color: var(--text-mid);
@@ -481,3 +481,18 @@ body {
 .social-chip:active { transform: scale(0.93) !important; }
 .skill-chip:active { transform: scale(0.93) !important; }
 .contact-card:active { transform: scale(0.97) !important; }
+
+/* Badge mobile */
+.badge-mobile {
+  display: none;
+}
+@media (max-width: 900px) {
+  .badge-mobile {
+    display: inline-flex;
+    position: static;
+    margin: 1.25rem 0 0;
+    box-shadow: 0 4px 20px rgba(13,33,55,0.1);
+    animation: floatBadge 3s ease-in-out infinite;
+  }
+  .badge-card:not(.badge-mobile) { display: none; }
+}
