@@ -308,13 +308,16 @@ img{max-width:100%;display:block}
   .hero{padding:5.5rem 1.25rem 3rem}
   .hero-wrap{grid-template-columns:1fr;gap:2rem}
   .hr{order:-1}
-  .agoy-hero-outer{height:320px}
-  .agoy-hero-box{width:260px;height:280px}
-  .agoy-slide-text{font-size:4.5rem}
+  .agoy-hero-outer{height:300px}
+  .agoy-hero-box{width:260px;height:260px}
+  .agoy-slide-text{font-size:4.2rem;animation:none;background-position:0% 50%}
+  .ah-tagline{animation:none;opacity:.7}
+  .ah-slideshow{animation:none;opacity:.1}
   .ah-r1,.ah-r2{display:none}
-  .ah-exp{left:-8px;top:10px;padding:8px 12px}
+  .ah-pill{display:none}
+  .ah-exp{left:-8px;top:-12px;padding:8px 12px;animation:none}
   .eb-num{font-size:1.4rem}
-  .ah-avail{right:-8px;bottom:10px;font-size:11px}
+  .ah-avail{right:-8px;bottom:-12px;font-size:11px;animation:none}
   .ht-name{font-size:clamp(2.4rem,9vw,3.5rem)}
   .hbtns{flex-direction:column}
   .btn-main,.btn-ghost{width:100%;justify-content:center;padding:14px 20px}
@@ -333,6 +336,8 @@ img{max-width:100%;display:block}
 @media(max-width:480px){
   .sk-grid{grid-template-columns:repeat(2,1fr)}
   .stats-grid{grid-template-columns:1fr 1fr}
-  .agoy-hero-box{width:220px;height:240px}
-  .agoy-slide-text{font-size:3.8rem}
+  .agoy-hero-box{width:200px;height:210px}
+  .agoy-slide-text{font-size:3.4rem}
+  .ah-exp{top:-14px;left:-6px}
+  .ah-avail{bottom:-14px;right:-6px}
 }
