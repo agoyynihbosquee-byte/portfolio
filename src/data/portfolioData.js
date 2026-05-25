@@ -14,8 +14,8 @@ export const portfolioData = {
     avatarUrl: "", // Biarkan kosong untuk menggunakan avatar huruf, atau masukkan path gambar
     tagline: "Saya membangun aplikasi web berkinerja tinggi dan memiliki visual memukau, memadukan rekayasa perangkat lunak yang tangguh dengan pengalaman pengguna premium.",
     aboutMe: "Saya adalah seorang software engineer yang berdedikasi dengan pengalaman lebih dari 4 tahun dalam menciptakan solusi digital. Saya berspesialisasi dalam ekosistem Node.js, framework frontend modern, dan arsitektur cloud. Filosofi desain saya berfokus pada kecepatan, keanggunan, dan perhatian luar biasa terhadap detail.",
-    experienceYears: "1 tahun",
-    completedProjects: "2",
+    experienceYears: "5",
+    completedProjects: "1",
     happyClients: "15+",
     resumeUrl: "#", // Tambahkan link ke PDF CV/Resume Anda jika sudah siap
     socials: {
@@ -68,37 +68,37 @@ export const portfolioData = {
     {
       category: "Bahasa Pemrograman",
       items: [
-        { name: "JavaScript (ES6+)", level: 95 },
-        { name: "TypeScript", level: 90 },
-        { name: "HTML5 & CSS3", level: 95 },
-        { name: "Python", level: 75 }
+        { name: "JavaScript (ES6+)", level: 95, icon: "JS", color: "#f7df1e" },
+        { name: "TypeScript", level: 90, icon: "TS", color: "#3178c6" },
+        { name: "HTML5 & CSS3", level: 95, icon: "</>", color: "#e34f26" },
+        { name: "Python", level: 75, icon: "PY", color: "#3776ab" }
       ]
     },
     {
       category: "Frontend & UI",
       items: [
-        { name: "React / Vite", level: 92 },
-        { name: "Vanilla CSS & Tata Letak Modern", level: 95 },
-        { name: "Responsif & Flexbox/Grid", level: 98 },
-        { name: "Manajemen State (Redux/Zustand)", level: 85 }
+        { name: "React / Vite", level: 92, icon: "⚛", color: "#61dafb" },
+        { name: "Vanilla CSS", level: 95, icon: "✦", color: "#1572b6" },
+        { name: "Tailwind", level: 98, icon: "🌊", color: "#38bdf8" },
+        { name: "State Management", level: 85, icon: "📦", color: "#764abc" }
       ]
     },
     {
       category: "Backend & Database",
       items: [
-        { name: "Node.js & Express", level: 94 },
-        { name: "RESTful APIs & GraphQL", level: 90 },
-        { name: "PostgreSQL & MongoDB", level: 88 },
-        { name: "Redis Caching", level: 80 }
+        { name: "Node.js & Express", level: 94, icon: "⬡", color: "#68a063" },
+        { name: "RESTful APIs", level: 90, icon: "⇄", color: "#ff6b6b" },
+        { name: "PostgreSQL", level: 88, icon: "🐘", color: "#336791" },
+        { name: "MongoDB", level: 80, icon: "🍃", color: "#47a248" }
       ]
     },
     {
       category: "Peralatan & DevOps",
       items: [
-        { name: "Alur Kerja Git & GitHub", level: 90 },
-        { name: "Docker & Kontainerisasi", level: 82 },
-        { name: "AWS Cloud (S3, EC2)", level: 78 },
-        { name: "CI/CD & Pengujian (Jest/Cypress)", level: 85 }
+        { name: "Git & GitHub", level: 90, icon: "⎇", color: "#f05032" },
+        { name: "Docker", level: 82, icon: "🐳", color: "#2496ed" },
+        { name: "AWS Cloud", level: 78, icon: "☁", color: "#ff9900" },
+        { name: "CI/CD", level: 85, icon: "🚀", color: "#ffffff" }
       ]
     }
   ],
